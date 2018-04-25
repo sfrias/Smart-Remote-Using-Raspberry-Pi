@@ -9,14 +9,14 @@ var client  = mqtt.connect('Server Name:Port No.', {
   password: "Password"
 })
 
-// When I connected, do something
+// Connect to MQTT
 client.on('connect', function () {
   console.log("Connected to MQTT.")
 
   client.subscribe('fromServer')
 })
 
-//Recieve Message
+//Recieve Message and call toggleLight function
 client.on('message', function (topic) {
   if (topic === 'fromServer') {
     console.log("message recieved")
@@ -27,28 +27,31 @@ client.on('message', function (topic) {
   }
 
 })
-
+//set sate to 0
 var state = '0';
 //Toggle WeMo Switch
 function toggleLight() {
+  //if theres no switch don't do anything
   if(!client){
     return;
   }
-      //console.log('state is: ' + state);
-      client.setBinaryState(state === '1' ? '0' : '1');
-      console.log("toggleLight ran")
+  //console.log('state is: ' + state);
+
+  //change state 
+  client.setBinaryState(state === '1' ? '0' : '1');
+  console.log("toggleLight ran")
 
   }
 
 var client;
+//find smart plug
 wemo.discover(function(err, deviceInfo) {
   console.log('Wemo Device Found: %j', deviceInfo);
 
   // Get the client for the found device
   client = wemo.client(deviceInfo);
 
-  // You definitely want to listen to error events (e.g. device went offline),
-  // Node will throw them as an exception if they are left unhandled
+  //throw exception if there is an error
   client.on('error', function(err) {
     console.log('Error: %s', err.code);
   });
