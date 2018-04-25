@@ -1,0 +1,18 @@
+{
+  "name": "mydevice",
+  "version": "1.0.0",
+  "main": "device.js",
+  "scripts": {
+    "start": "node device.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.3",
+    "mqtt": "^2.17.0",
+    "wemo-client": "^0.15.0"
+  },
+  "devDependencies": {},
+  "description": ""
+}
