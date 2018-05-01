@@ -39,10 +39,6 @@ Demo Video
 
 https://www.youtube.com/watch?v=wd-og7Rl1zo
 
-Architecture
+Blog Post with detailed instructions on how to implement on you own
 
-Smart plug receives function change and executes change of state
-User initiates protocol by interacting with toggle button on the web server 
-Raspberry pi executes function that changes the smart plug state that turns on and off the the light
-Web server sends an MQTT message to the raspberry pi
-The web server and raspberry pi are able to send messages back and forth to each other using cloudMQTT.
+Coming Soon!
